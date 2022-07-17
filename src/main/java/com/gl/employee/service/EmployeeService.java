@@ -1,6 +1,7 @@
 package com.gl.employee.service;
 
 import com.gl.employee.entity.Employee;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public interface EmployeeService {
     public Employee getEmployeeById(Long id);
     public Employee updateEmployee(Employee employee);
     public String deleteEmployeeById(Long id);
+    public List<Employee> searchByFirstName(String firstName);
+    public List<Employee> getAllEmployeesSortedByFirstName(Sort.Direction direction);
 }

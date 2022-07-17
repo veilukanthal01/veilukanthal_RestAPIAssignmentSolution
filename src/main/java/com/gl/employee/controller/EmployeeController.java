@@ -32,7 +32,7 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/api/employees/getEmployeeById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Employee>> getEmployeeById(@PathVariable Long id) {
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
         return new ResponseEntity(employeeService.getEmployeeById(id), HttpStatus.OK);
     }
 
@@ -44,5 +44,10 @@ public class EmployeeController {
     @DeleteMapping(value = "/api/employees/delete/{id}")
     public ResponseEntity deleteEmployeeById(@PathVariable Long id) {
         return new ResponseEntity(employeeService.deleteEmployeeById(id), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/api/employees/search/{firstName}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Employee>> searchByFirstName(@PathVariable String firstName) {
+        return new ResponseEntity(employeeService.searchByFirstName(firstName), HttpStatus.OK);
     }
 }

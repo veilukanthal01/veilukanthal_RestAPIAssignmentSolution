@@ -4,6 +4,7 @@ import com.gl.employee.entity.Employee;
 import com.gl.employee.repository.EmployeeRepository;
 import com.gl.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,5 +50,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.deleteById(id);
         return "Deleted Employee id is: " + id;
     }
+
+    @Override
+    public List<Employee> searchByFirstName(String firstName) {
+        return employeeRepository.findByFirstNameIgnoreCase(firstName);
+    }
+
+    @Override
+    public List<Employee> getAllEmployeesSortedByFirstName(Sort.Direction direction) {
+        //        log.info("List of Libraries getLibrariesCustomeSortByName -> {}", libraryService.getLibrariesCustomeSortByName(Sort.Direction.DESC));
+            return employeeRepository.findAll(Sort.by(direction, "firstName"));
+    }
+
 
 }
