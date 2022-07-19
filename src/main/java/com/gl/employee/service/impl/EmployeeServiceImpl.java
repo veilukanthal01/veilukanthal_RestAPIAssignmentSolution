@@ -57,8 +57,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getAllEmployeesSortedByFirstName(String firstName) {
-        if (firstName.equalsIgnoreCase("desc")) {
+    public List<Employee> getAllEmployeesSortedByFirstName(String order) {
+        if (order.equalsIgnoreCase("desc")) {
             return employeeRepository.findAll(Sort.by(Sort.Direction.DESC, "firstName"));
         } else {
             return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));

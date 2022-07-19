@@ -52,7 +52,7 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/api/employees/sort", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Employee>> sortByFirstName(@RequestParam String firstName) {
-        return new ResponseEntity(employeeService.getAllEmployeesSortedByFirstName(firstName), HttpStatus.OK);
+    public ResponseEntity<List<Employee>> sortByFirstName(@RequestParam String order) {
+        return new ResponseEntity(employeeService.getAllEmployeesSortedByFirstName(order), HttpStatus.OK);
     }
 }

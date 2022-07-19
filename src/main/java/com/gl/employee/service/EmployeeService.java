@@ -18,5 +18,5 @@ public interface EmployeeService {
 
     public List<Employee> searchByFirstName(String firstName);
 
-    public List<Employee> getAllEmployeesSortedByFirstName(String firstName);
+    public List<Employee> getAllEmployeesSortedByFirstName(String order);
 }
