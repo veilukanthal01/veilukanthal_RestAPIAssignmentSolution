@@ -57,9 +57,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getAllEmployeesSortedByFirstName(Sort.Direction direction) {
-        //        log.info("List of Libraries getLibrariesCustomeSortByName -> {}", libraryService.getLibrariesCustomeSortByName(Sort.Direction.DESC));
-            return employeeRepository.findAll(Sort.by(direction, "firstName"));
+    public List<Employee> getAllEmployeesSortedByFirstName(String firstName) {
+        if (firstName.equalsIgnoreCase("desc")) {
+            return employeeRepository.findAll(Sort.by(Sort.Direction.DESC, "firstName"));
+        } else {
+            return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));
+        }
     }
 
 

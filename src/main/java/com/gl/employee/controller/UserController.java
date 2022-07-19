@@ -2,7 +2,6 @@ package com.gl.employee.controller;
 
 import com.gl.employee.entity.Role;
 import com.gl.employee.entity.User;
-import com.gl.employee.service.RoleService;
 import com.gl.employee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

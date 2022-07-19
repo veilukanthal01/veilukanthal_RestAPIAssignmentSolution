@@ -53,6 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/employees/getAllEmployees").access("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
                 .antMatchers("/api/employees/getEmployeeById/**").access("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
                 .antMatchers("/api/employees/search/**").access("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+                .antMatchers("/api/employees/sort/**").access("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
                 .antMatchers("/api/employees/update").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/api/employees/delete/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated()
